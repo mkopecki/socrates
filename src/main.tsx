@@ -1,14 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { BaseLayout } from "./layouts/BaseLayout";
-import { Settings, History, Chat } from "./routes";
+import { ChatPage } from "@/pages/chat";
+import { History } from "@/pages/history";
+import { Settings } from "@/pages/settings";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "chat",
-        element: <Chat />,
+        element: <ChatPage />,
       },
       {
         path: "history",
