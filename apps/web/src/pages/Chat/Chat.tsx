@@ -1,25 +1,18 @@
 import React from "react";
-import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Textarea } from "@/components/ui/textarea";
 import { History } from "./History";
+import { Sidebar } from "./Sidebar/Sidebar";
 
 export const Chat = () => {
   return (
-    <>
-      <div>
-        <div className="py-2 pl-4">
-          <span className="text-xl">Socrates</span>
-        </div>
-        <Separator />
+    <div className="flex">
+      <Sidebar />
 
-        <div className="flex">
-          <History />
-          <ChatSession />
-        </div>
-      </div>
-    </>
+      <History />
+      <ChatSession />
+    </div>
   );
 };
 

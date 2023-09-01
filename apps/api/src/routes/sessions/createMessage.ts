@@ -1,7 +1,7 @@
 import express from "express";
 import { log } from "logger";
 import { CreateMessageRequestBody, Message } from "types";
-import { sessions } from "../sessions";
+import { sessions } from "@/state";
 import * as uuid from "uuid";
 
 export const createMessage = async (
@@ -28,7 +28,7 @@ export const createMessage = async (
   session.messageHistory.push(message);
 
   // prompt model
-  const assistantMessages = await session.model.prompt(session.messageHistory, session.env);
+  const assistantMessages = await session.model.prompt(session.messageHistory);
   session.messageHistory.push(...assistantMessages);
 
   res.status(200).send("ok");

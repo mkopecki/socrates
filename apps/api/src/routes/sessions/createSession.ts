@@ -1,8 +1,8 @@
+import { sessions } from "@/state";
 import express from "express";
 import { ChatSession, Message } from "types";
 import * as uuid from "uuid";
-import { sessions } from "../sessions";
-import * as gpt4 from "../models/gpt4";
+import * as gpt4 from "@/models/gpt4";
 
 export const createSession = (_req: express.Request, res: express.Response) => {
   // create new session
