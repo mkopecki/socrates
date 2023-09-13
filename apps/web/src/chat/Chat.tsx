@@ -1,43 +1,10 @@
 import { useAtom } from "jotai";
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { Panel } from "./Panel";
 import { layoutState } from "./state";
 import * as LayoutTypes from "./types";
 
-export const ChatPage = () => {
-  return (
-    <div className="flex flex-col space-y-4 h-screen">
-      <NavBar />
-
-      <div className="p-4 h-full">
-        <Chat />
-      </div>
-    </div>
-  );
-};
-
-const NavBar = () => {
-  return (
-    <div className="w-full flex space-x-4 px-4 py-2 border-b">
-      <span>S</span>
-
-      <NavLink to="/">
-        <span>Chat</span>
-      </NavLink>
-
-      <NavLink to="/history">
-        <span>History</span>
-      </NavLink>
-
-      <NavLink to="/settings">
-        <span>Settings</span>
-      </NavLink>
-    </div>
-  );
-};
-
-const Chat = () => {
+export const Chat = () => {
   const [layout] = useAtom(layoutState);
   return <div>{renderLayout(layout)}</div>;
 };
